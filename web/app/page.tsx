@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { MapPin } from "lucide-react"
+import { HomeIcon, MapPin, Brain, Briefcase, FolderKanban, Mail, CodeXml, ExternalLink } from "lucide-react"
+
 
 export default function Home() {
 	const [isDark, setIsDark] = useState(true)
@@ -44,17 +45,44 @@ export default function Home() {
 
 	return (
 		<div className="min-h-screen bg-background text-foreground relative">
-			{/* Sidebar Navigation */}
-			<nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
-				<div className="flex flex-col gap-4">
-					{["intro", "skills", "experience", "projects", "contact"].map((section) => (
-						<button
-							key={section}
-							onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
-							className={`w-2 h-8 rounded-full transition-all duration-500 ${activeSection === section ? "bg-foreground" : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-								}`}
-							aria-label={`Navigate to ${section}`}
-						/>
+			<nav className="fixed left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex">
+				<div className="
+				flex flex-col gap-2 p-2
+				backdrop-blur-md bg-background/60
+				border border-border/50
+				rounded-2xl shadow-2xl
+			">
+					{[
+						{ id: "intro", label: "Intro", icon: <HomeIcon size={16} /> },
+						{ id: "skills", label: "Skills", icon: <CodeXml size={16} /> },
+						{ id: "experience", label: "Experience", icon: <Briefcase size={16} /> },
+						{ id: "projects", label: "Projects", icon: <FolderKanban size={16} /> },
+						{ id: "contact", label: "Contact", icon: <Mail size={16} /> }
+					].map((item) => (
+						<div key={item.id} className="relative">
+							<button
+								onClick={() =>
+									document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" })
+								}
+								className={`
+									group relative flex items-center justify-center
+									w-10 h-10 rounded-xl
+									transition-all duration-300 cursor-pointer
+									${activeSection === item.id
+													? "bg-foreground text-background shadow-lg scale-110"
+													: "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105"}
+								`}
+							>
+
+								<span className="relative z-10 transition-transform duration-300 group-hover:scale-110">
+									{item.icon}
+								</span>
+
+								{activeSection === item.id && (
+									<span className="absolute inset-0 rounded-xl bg-foreground/20 animate-pulse" />
+								)}
+							</button>
+						</div>
 					))}
 				</div>
 			</nav>
@@ -247,6 +275,7 @@ export default function Home() {
 										<a href="https://github.com/V-A-T-S-A-L/coding-platform" target="_blank" rel="noreferrer" className="underline">
 											View repo
 										</a>
+										<ExternalLink className="w-4 h-4 cursor-pointer" />
 									</div>
 								</div>
 							</article>
@@ -255,7 +284,7 @@ export default function Home() {
 							<article className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg">
 								<div className="space-y-4">
 									<div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-										<span>Next.js • Supabase • AI</span>
+										<span>Next.js • Supabase • Gemini</span>
 									</div>
 
 									<h3 className="text-lg sm:text-xl font-medium">CardGenX</h3>
@@ -269,6 +298,7 @@ export default function Home() {
 										<a href="https://github.com/V-A-T-S-A-L/AI-Learning-Platform" target="_blank" rel="noreferrer" className="underline">
 											View repo
 										</a>
+										<ExternalLink className="w-4 h-4 cursor-pointer" />
 									</div>
 								</div>
 							</article>
@@ -291,6 +321,7 @@ export default function Home() {
 										<a href="https://github.com/V-A-T-S-A-L/deepfake" target="_blank" rel="noreferrer" className="underline">
 											View repo
 										</a>
+										<ExternalLink className="w-4 h-4 cursor-pointer" />
 									</div>
 								</div>
 							</article>
@@ -313,6 +344,7 @@ export default function Home() {
 										<a href="https://github.com/V-A-T-S-A-L/Resolve" target="_blank" rel="noreferrer" className="underline">
 											View repo
 										</a>
+										<ExternalLink className="w-4 h-4 cursor-pointer" />
 									</div>
 								</div>
 							</article>
@@ -349,7 +381,7 @@ export default function Home() {
 										<a href="https://leetcode.com/u/_Vatsal/" target="_blank" rel="noreferrer" className="px-4 py-2 border border-border rounded hover:border-muted-foreground/50">
 											LeetCode
 										</a>
-										<a href="/mnt/data/VatsalShah_Resume.pdf" target="_blank" rel="noreferrer" className="px-4 py-2 border border-border rounded hover:border-muted-foreground/50">
+										<a href="/VatsalShah_Resume.pdf" target="_blank" rel="noreferrer" className="px-4 py-2 border border-border rounded hover:border-muted-foreground/50">
 											View Resume
 										</a>
 									</div>
