@@ -69,8 +69,8 @@ export default function Home() {
 									w-10 h-10 rounded-xl
 									transition-all duration-300 cursor-pointer
 									${activeSection === item.id
-													? "bg-foreground text-background shadow-lg scale-110"
-													: "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105"}
+										? "bg-foreground text-background shadow-lg scale-110"
+										: "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105"}
 								`}
 							>
 
@@ -105,7 +105,7 @@ export default function Home() {
 											</svg>
 										)}
 									</button>
-									<div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2025</div>
+									<div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2026</div>
 								</div>
 								<h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
 									Vatsal
@@ -385,6 +385,18 @@ export default function Home() {
 											View Resume
 										</a>
 									</div>
+									<p className="pt-6 text-sm text-muted-foreground">
+										Outside of software, I occasionally explore 3D art and procedural materials as a creative outlet -
+										<a
+											href="https://archive-vatsalshah.vercel.app"
+											target="_blank"
+											rel="noreferrer"
+											className="ml-1 underline underline-offset-4 hover:text-foreground transition-colors"
+										>
+											check out my humble Blender archive.
+										</a>
+									</p>
+
 								</div>
 							</div>
 						</div>
